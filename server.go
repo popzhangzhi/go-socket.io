@@ -18,6 +18,7 @@ func NewServer(c *engineio.Options) (*Server, error) {
 	if err != nil {
 		return nil, err
 	}
+
 	return &Server{
 		handlers: make(map[string]*namespaceHandler),
 		eio:      eio,
