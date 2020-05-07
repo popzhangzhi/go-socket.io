@@ -1,6 +1,7 @@
 package socketio
 
 import (
+	"fmt"
 	"net/http"
 
 	engineio "github.com/googollee/go-engine.io"
@@ -64,6 +65,7 @@ func (s *Server) OnEvent(nsp, event string, f interface{}) {
 func (s *Server) Serve() error {
 	for {
 		conn, err := s.eio.Accept()
+		fmt.Println("server.go:69=>读取connChan：", conn.ID())
 		if err != nil {
 			return err
 		}
@@ -174,4 +176,8 @@ func (s *Server) getNamespace(nsp string, create bool) *namespaceHandler {
 	} else {
 		return nil
 	}
+}
+
+func (s *Server) GetAllSessions() (int, []string) {
+	return s.eio.GetAllSessions()
 }
