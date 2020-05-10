@@ -8,3 +8,6 @@ require (
 	github.com/stretchr/testify v1.4.0
 	gopkg.in/yaml.v2 v2.2.4 // indirect
 )
+replace (
+	github.com/googollee/go-engine.io v1.4.2 => ..\go-engine.io
+)
